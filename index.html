@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Christmas Market AR - Entry</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="entry-screen">
+    <!-- AR Frame Overlay -->
+    <div class="ar-frame"></div>
+    
+    <!-- Animated grain/noise overlay -->
+    <div class="grain-overlay"></div>
+    
+    <!-- Dark vignette -->
+    <div class="vignette"></div>
+    
+    <!-- 
+        SIMULATION NOTE: This is the entry point for our AR interface simulation.
+        In a real AR system, this would be the first screen shown when the headset is activated.
+    -->
+    
+    <div class="container">
+        <div class="entry-content glass-panel">
+            <div class="ar-logo-glow"></div>
+            <h1 class="title">Christmas Market AR</h1>
+            <p class="subtitle">Hands-free navigation & discovery</p>
+            
+            <!-- 
+                INTERACTION SIMULATION: In real AR, this would be activated by:
+                - Gaze: Looking at the button for 2 seconds
+                - Gesture: Hand gesture confirmation
+                Here: Simple click/tap interaction
+            -->
+            <a href="discover.html" class="btn-primary glow-button">
+                <span class="button-glow"></span>
+                Start Experience
+            </a>
+        </div>
+    </div>
+    
+    <!-- Simulation hint -->
+    <div class="sim-hint">Simulation: Gaze = highlight • Gesture = Confirm button</div>
+</body>
+</html>

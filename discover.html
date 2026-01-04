@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discover Stalls - Christmas Market AR</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="ar-view">
+    <!-- AR Frame Overlay -->
+    <div class="ar-frame"></div>
+    
+    <!-- Animated grain/noise overlay -->
+    <div class="grain-overlay"></div>
+    
+    <!-- Dark vignette -->
+    <div class="vignette"></div>
+    
+    <!-- 
+        SIMULATION NOTE: This page simulates the AR view of the Christmas market.
+        Background represents what the user would see through the AR headset.
+        Floating cards represent AR overlays that appear in the user's field of vision.
+    -->
+    
+    <div class="ar-background discover-bg">
+        <!-- Optional: add background.jpg here -->
+        <div class="background-overlay"></div>
+    </div>
+
+    <div class="ar-overlay">
+        <!-- AR Header -->
+        <header class="ar-header glass-panel-subtle">
+            <div class="mode-indicator">
+                <span class="mode-dot"></span>
+                Discover
+            </div>
+            <div class="lens-glare"></div>
+        </header>
+        
+        <!-- Gaze target display -->
+        <div class="gaze-target glass-panel" id="gazeTarget">
+            <div class="gaze-pulse"></div>
+            <span class="gaze-icon">◉</span>
+            <span class="gaze-label">Gaze target:</span>
+            <span class="gaze-name" id="gazeTargetName">(none)</span>
+        </div>
+        
+        <!-- 
+            GAZE SIMULATION: In real AR, hovering represents where the user is looking.
+            When a card is hovered (gazed at), it highlights to show it's in focus.
+            The user would then perform a gesture to confirm selection.
+        -->
+        
+        <div class="stall-container">
+            <!-- Stall Card 1 -->
+            <div class="stall-card glass-panel floating" data-stall="mulled-wine">
+                <div class="card-glow"></div>
+                <div class="stall-icon">🍷</div>
+                <h3 class="stall-name">Mulled Wine & Treats</h3>
+                <div class="stall-info">
+                    <span class="info-badge queue-short glass-badge">
+                        <span class="badge-dot"></span>
+                        Queue: Short
+                    </span>
+                    <span class="info-badge payment-card glass-badge">
+                        <span class="badge-icon">💳</span>
+                        Card
+                    </span>
+                </div>
+                <div class="gaze-indicator">Focus to select</div>
+            </div>
+
+            <!-- Stall Card 2 -->
+            <div class="stall-card glass-panel floating" data-stall="handcraft">
+                <div class="card-glow"></div>
+                <div class="stall-icon">🎁</div>
+                <h3 class="stall-name">Handcraft Gifts</h3>
+                <div class="stall-info">
+                    <span class="info-badge queue-medium glass-badge">
+                        <span class="badge-dot"></span>
+                        Queue: Medium
+                    </span>
+                    <span class="info-badge payment-cash glass-badge">
+                        <span class="badge-icon">💵</span>
+                        Cash
+                    </span>
+                </div>
+                <div class="gaze-indicator">Focus to select</div>
+            </div>
+
+            <!-- Stall Card 3 -->
+            <div class="stall-card glass-panel floating" data-stall="bakery">
+                <div class="card-glow"></div>
+                <div class="stall-icon">🥨</div>
+                <h3 class="stall-name">Traditional Bakery</h3>
+                <div class="stall-info">
+                    <span class="info-badge queue-long glass-badge">
+                        <span class="badge-dot"></span>
+                        Queue: Long
+                    </span>
+                    <span class="info-badge payment-card glass-badge">
+                        <span class="badge-icon">💳</span>
+                        Card
+                    </span>
+                </div>
+                <div class="gaze-indicator">Focus to select</div>
+            </div>
+        </div>
+
+        <!-- 
+            GESTURE SIMULATION: In real AR, this would be triggered by:
+            - Air tap gesture
+            - Voice command "Confirm"
+            - Physical button on headset
+            Here: Simple button click
+        -->
+        <div class="action-bar">
+            <button class="btn-confirm glass-panel glow-button" id="confirmBtn" disabled>
+                <span class="button-glow"></span>
+                <span class="btn-icon">✓</span>
+                Confirm Selection
+            </button>
+        </div>
+    </div>
+
+    <!-- Gesture confirmation modal -->
+    <div class="modal-overlay" id="gestureModal">
+        <div class="modal-content glass-panel premium-modal">
+            <div class="modal-glow"></div>
+            <div class="gesture-icon">👆</div>
+            <h3>Confirm selection with gesture?</h3>
+            <p class="modal-stall-name" id="modalStallName"></p>
+            <div class="modal-buttons">
+                <button class="btn-primary glow-button" id="confirmGesture">
+                    <span class="button-glow"></span>
+                    Confirm Gesture
+                </button>
+                <button class="btn-secondary glass-button" id="cancelGesture">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Simulation hint -->
+    <div class="sim-hint">Simulation: Gaze = card highlight • Gesture = Confirm button</div>
+
+    <script src="script.js"></script>
+</body>
+</html>

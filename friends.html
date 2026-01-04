@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Friend Locations - Christmas Market AR</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="ar-view">
+    <!-- AR Frame Overlay -->
+    <div class="ar-frame"></div>
+    
+    <!-- Animated grain/noise overlay -->
+    <div class="grain-overlay"></div>
+    
+    <!-- Dark vignette -->
+    <div class="vignette"></div>
+    
+    <!-- 
+        SIMULATION NOTE: This page simulates AR friend-finding feature.
+        In real AR, friend markers would appear as 3D icons in the direction
+        they're located, updated in real-time via GPS.
+    -->
+    
+    <div class="ar-background friends-bg">
+        <div class="background-overlay"></div>
+    </div>
+
+    <div class="ar-overlay">
+        <!-- AR Header -->
+        <header class="ar-header glass-panel-subtle">
+            <div class="mode-indicator">
+                <span class="mode-dot"></span>
+                Friends
+            </div>
+            <div class="lens-glare"></div>
+        </header>
+        
+        <!-- Beacon status display -->
+        <div class="beacon-status glass-panel floating" id="beaconStatus" style="display: none;">
+            <div class="beacon-pulse"></div>
+            <span class="beacon-icon">🔵</span>
+            <div class="beacon-info">
+                <strong>Beacon active:</strong>
+                <span id="beaconFriend" class="beacon-name"></span>
+                <span class="beacon-sep">—</span>
+                <span id="beaconDirection" class="beacon-dir"></span>
+            </div>
+            <div class="beacon-arrow" id="beaconArrow"></div>
+        </div>
+        
+        <!-- 
+            SPATIAL SIMULATION: In real AR, these would be:
+            - 3D waypoint markers floating in space
+            - Directional arrows pointing toward friends
+            - Distance updated in real-time
+            Here: Static cards with distance and direction indicators
+        -->
+        
+        <div class="friends-container">
+            <!-- Friend 1 -->
+            <div class="friend-card glass-panel floating clickable" data-friend="Anna" data-distance="40 m" data-direction="Northwest" data-arrow="↖">
+                <div class="friend-glow"></div>
+                <div class="friend-icon-circle">
+                    <div class="friend-icon">👤</div>
+                    <div class="friend-ping"></div>
+                </div>
+                <div class="friend-info">
+                    <h3 class="friend-name">Anna</h3>
+                    <p class="friend-distance">
+                        <span class="distance-icon">📍</span>
+                        40 m away
+                    </p>
+                </div>
+                <div class="friend-direction">
+                    <!-- Arrow indicating direction -->
+                    <div class="direction-arrow-large">↖</div>
+                    <span class="direction-label">Northwest</span>
+                </div>
+            </div>
+
+            <!-- Friend 2 -->
+            <div class="friend-card glass-panel floating clickable" data-friend="Jake" data-distance="75 m" data-direction="East" data-arrow="→">
+                <div class="friend-glow"></div>
+                <div class="friend-icon-circle">
+                    <div class="friend-icon">👤</div>
+                    <div class="friend-ping"></div>
+                </div>
+                <div class="friend-info">
+                    <h3 class="friend-name">Jake</h3>
+                    <p class="friend-distance">
+                        <span class="distance-icon">📍</span>
+                        75 m away
+                    </p>
+                </div>
+                <div class="friend-direction">
+                    <!-- Arrow indicating direction -->
+                    <div class="direction-arrow-large">→</div>
+                    <span class="direction-label">East</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="friends-note">
+            <div class="info-chip glass-badge">
+                <span class="info-icon">💡</span>
+                Locations update automatically as you move
+            </div>
+        </div>
+
+        <!-- 
+            NAVIGATION SIMULATION: Return to main navigation
+            In real AR, this could be triggered by:
+            - Looking away from friends view
+            - Gesture to dismiss
+            - Voice command "Back"
+        -->
+        <div class="action-bar">
+            <a href="route.html" class="btn-primary glass-button glow-button">
+                <span class="button-glow"></span>
+                <span class="btn-icon">←</span>
+                Return to Route
+            </a>
+        </div>
+    </div>
+
+    <!-- Friend navigation modal -->
+    <div class="modal-overlay" id="friendModal">
+        <div class="modal-content glass-panel premium-modal">
+            <div class="modal-glow"></div>
+            <div class="gesture-icon">📍</div>
+            <h3 id="friendModalTitle">Navigate to friend?</h3>
+            <p id="friendModalDistance" class="modal-distance"></p>
+            <div class="modal-buttons">
+                <button class="btn-primary glow-button" id="confirmFriendNav">
+                    <span class="button-glow"></span>
+                    Confirm Gesture
+                </button>
+                <button class="btn-secondary glass-button" id="cancelFriendNav">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Simulation hint -->
+    <div class="sim-hint">Simulation: Click friend → Gesture confirm to activate beacon</div>
+
+    <script src="script.js"></script>
+</body>
+</html>

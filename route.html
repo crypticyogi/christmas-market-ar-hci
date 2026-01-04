@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Route Overview - Christmas Market AR</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="ar-view">
+    <!-- AR Frame Overlay -->
+    <div class="ar-frame"></div>
+    
+    <!-- Animated grain/noise overlay -->
+    <div class="grain-overlay"></div>
+    
+    <!-- Dark vignette -->
+    <div class="vignette"></div>
+    
+    <!-- 
+        SIMULATION NOTE: This page shows the navigation route in AR overlay.
+        In real AR, this would be overlaid on the user's real-world view as they walk.
+    -->
+    
+    <div class="ar-background route-bg">
+        <div class="background-overlay"></div>
+    </div>
+
+    <div class="ar-overlay">
+        <!-- AR Header -->
+        <header class="ar-header glass-panel-subtle">
+            <div class="mode-indicator">
+                <span class="mode-dot"></span>
+                Route
+            </div>
+            <div class="lens-glare"></div>
+        </header>
+        
+        <!-- Selected stall display -->
+        <div class="next-stop-display glass-panel floating">
+            <div class="pulse-ring"></div>
+            <span class="stop-icon">📍</span>
+            <span class="stop-label">Next stop:</span>
+            <strong><span id="nextStopName" class="stop-name-text">(none)</span></strong>
+        </div>
+        
+        <!-- 
+            NAVIGATION SIMULATION: In real AR, this route would:
+            - Update dynamically as the user walks
+            - Show directional arrows in 3D space
+            - Highlight the next waypoint
+            Here: Static visual representation
+        -->
+        
+        <div class="route-container glass-panel floating">
+            <div class="route-glow"></div>
+            
+            <!-- Pill Stepper Navigation -->
+            <div class="route-stepper">
+                <div class="step-pill active">
+                    <div class="pill-dot"></div>
+                    <span class="pill-label">You</span>
+                </div>
+                <div class="step-connector">
+                    <div class="connector-line animated-dash"></div>
+                    <div class="connector-arrow">→</div>
+                </div>
+                <div class="step-pill">
+                    <div class="pill-dot"></div>
+                    <span class="pill-label">Stop 1</span>
+                </div>
+                <div class="step-connector">
+                    <div class="connector-line"></div>
+                    <div class="connector-arrow">→</div>
+                </div>
+                <div class="step-pill">
+                    <div class="pill-dot"></div>
+                    <span class="pill-label">Stop 2</span>
+                </div>
+                <div class="step-connector">
+                    <div class="connector-line"></div>
+                    <div class="connector-arrow">→</div>
+                </div>
+                <div class="step-pill">
+                    <div class="pill-dot"></div>
+                    <span class="pill-label">Stop 3</span>
+                </div>
+            </div>
+
+            <div class="route-details">
+                <h3 class="section-title">Upcoming Stops</h3>
+                <ul class="stop-list">
+                    <li class="stop-item active glass-badge">
+                        <span class="stop-number glow-number">1</span>
+                        <div class="stop-content">
+                            <span class="stop-name-bold">Mulled Wine & Treats</span>
+                            <span class="stop-distance">50m</span>
+                        </div>
+                        <span class="stop-arrow">→</span>
+                    </li>
+                    <li class="stop-item glass-badge">
+                        <span class="stop-number">2</span>
+                        <div class="stop-content">
+                            <span class="stop-name-bold">Handcraft Gifts</span>
+                            <span class="stop-distance">120m</span>
+                        </div>
+                        <span class="stop-arrow">→</span>
+                    </li>
+                    <li class="stop-item glass-badge">
+                        <span class="stop-number">3</span>
+                        <div class="stop-content">
+                            <span class="stop-name-bold">Main Stage</span>
+                            <span class="stop-distance">200m</span>
+                        </div>
+                        <span class="stop-arrow">→</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="route-status">
+                <div class="status-chip glass-badge">
+                    <span class="status-icon">✓</span>
+                    Route updated based on crowd levels
+                </div>
+            </div>
+        </div>
+
+        <!-- 
+            INTERACTION SIMULATION: Multiple action buttons demonstrate
+            different navigation options in the AR interface
+        -->
+        <div class="action-bar multi">
+            <a href="friends.html" class="btn-secondary glass-button glow-hover">
+                <span class="btn-icon">👥</span>
+                View Friends
+            </a>
+            <a href="discover.html" class="btn-secondary glass-button glow-hover">
+                <span class="btn-icon">🔄</span>
+                Change Route
+            </a>
+        </div>
+    </div>
+
+    <!-- Simulation hint -->
+    <div class="sim-hint">Simulation: Walking = navigation buttons</div>
+
+    <script src="script.js"></script>
+</body>
+</html>
