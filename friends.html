@@ -3,150 +3,115 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Friend Locations - Christmas Market AR</title>
+    <title>Christmas Market AR - Find Friends</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="ar-view">
-    <!-- AR Frame Overlay -->
+<body class="ar-active">
+    
     <div class="ar-frame"></div>
-    
-    <!-- Animated grain/noise overlay -->
-    <div class="grain-overlay"></div>
-    
-    <!-- Dark vignette -->
+    <div class="grain"></div>
     <div class="vignette"></div>
+    <div class="ar-background"></div>
     
-    <!-- 
-        SIMULATION NOTE: This page simulates AR friend-finding feature.
-        In real AR, friend markers would appear as 3D icons in the direction
-        they're located, updated in real-time via GPS.
-    -->
-    
-    <div class="ar-background friends-bg">
-        <div class="background-overlay"></div>
-    </div>
-
-    <div class="ar-overlay">
-        <!-- AR Header -->
-        <header class="ar-header glass-panel-subtle">
-            <div class="mode-indicator">
-                <span class="mode-dot"></span>
-                Friends
-            </div>
-            <div class="lens-glare"></div>
-        </header>
+    <div class="ar-content">
         
-        <!-- Beacon status display -->
-        <div class="beacon-status glass-panel floating" id="beaconStatus" style="display: none;">
-            <div class="beacon-pulse"></div>
-            <span class="beacon-icon">🔵</span>
-            <div class="beacon-info">
-                <strong>Beacon active:</strong>
-                <span id="beaconFriend" class="beacon-name"></span>
-                <span class="beacon-sep">—</span>
-                <span id="beaconDirection" class="beacon-dir"></span>
+        <div class="status-bar">
+            <div class="status-item">
+                <span class="status-dot"></span>
+                <span>AR Active</span>
             </div>
-            <div class="beacon-arrow" id="beaconArrow"></div>
+            <div class="status-item">
+                <span>12:34</span>
+            </div>
+            <div class="status-item">
+                <span>86%</span>
+            </div>
         </div>
         
-        <!-- 
-            SPATIAL SIMULATION: In real AR, these would be:
-            - 3D waypoint markers floating in space
-            - Directional arrows pointing toward friends
-            - Distance updated in real-time
-            Here: Static cards with distance and direction indicators
-        -->
+        <div class="view-title">
+            <h1>Friends Nearby</h1>
+        </div>
         
-        <div class="friends-container">
-            <!-- Friend 1 -->
-            <div class="friend-card glass-panel floating clickable" data-friend="Anna" data-distance="40 m" data-direction="Northwest" data-arrow="↖">
-                <div class="friend-glow"></div>
-                <div class="friend-icon-circle">
-                    <div class="friend-icon">👤</div>
-                    <div class="friend-ping"></div>
-                </div>
-                <div class="friend-info">
-                    <h3 class="friend-name">Anna</h3>
-                    <p class="friend-distance">
-                        <span class="distance-icon">📍</span>
-                        40 m away
-                    </p>
-                </div>
-                <div class="friend-direction">
-                    <!-- Arrow indicating direction -->
-                    <div class="direction-arrow-large">↖</div>
-                    <span class="direction-label">Northwest</span>
-                </div>
+        <!-- Friend Indicators -->
+        <div class="friend-indicator" style="left: 8%; top: 45%;">
+            <div class="friend-avatar">
+                <span class="avatar-icon">👤</span>
+                <div class="ping-effect"></div>
             </div>
-
-            <!-- Friend 2 -->
-            <div class="friend-card glass-panel floating clickable" data-friend="Jake" data-distance="75 m" data-direction="East" data-arrow="→">
-                <div class="friend-glow"></div>
-                <div class="friend-icon-circle">
-                    <div class="friend-icon">👤</div>
-                    <div class="friend-ping"></div>
-                </div>
-                <div class="friend-info">
-                    <h3 class="friend-name">Jake</h3>
-                    <p class="friend-distance">
-                        <span class="distance-icon">📍</span>
-                        75 m away
-                    </p>
-                </div>
-                <div class="friend-direction">
-                    <!-- Arrow indicating direction -->
-                    <div class="direction-arrow-large">→</div>
-                    <span class="direction-label">East</span>
-                </div>
+            <div class="friend-details">
+                <div class="friend-name">Anna</div>
+                <div class="friend-distance">40m</div>
+                <div class="friend-direction">↖ NW</div>
             </div>
         </div>
-
-        <div class="friends-note">
-            <div class="info-chip glass-badge">
-                <span class="info-icon">💡</span>
-                Locations update automatically as you move
+        
+        <div class="friend-indicator" style="right: 8%; top: 50%;">
+            <div class="friend-avatar">
+                <span class="avatar-icon">👤</span>
+                <div class="ping-effect"></div>
+            </div>
+            <div class="friend-details">
+                <div class="friend-name">Jake</div>
+                <div class="friend-distance">75m</div>
+                <div class="friend-direction">→ E</div>
             </div>
         </div>
-
-        <!-- 
-            NAVIGATION SIMULATION: Return to main navigation
-            In real AR, this could be triggered by:
-            - Looking away from friends view
-            - Gesture to dismiss
-            - Voice command "Back"
-        -->
-        <div class="action-bar">
-            <a href="route.html" class="btn-primary glass-button glow-button">
-                <span class="button-glow"></span>
-                <span class="btn-icon">←</span>
-                Return to Route
+        
+        <!-- Info Panel -->
+        <div class="info-panel">
+            <div class="panel-icon">💡</div>
+            <p>Friend locations update in real-time</p>
+        </div>
+        
+        <nav class="main-menu">
+            <a href="index.html" class="menu-item">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <path d="M21 21l-4.35-4.35"></path>
+                </svg>
+                <span>Discover</span>
             </a>
-        </div>
+            <a href="friends.html" class="menu-item active">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="9" cy="7" r="4"></circle>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                </svg>
+                <span>Friends</span>
+            </a>
+            <a href="route.html" class="menu-item">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+                <span>Route</span>
+            </a>
+            <a href="events.html" class="menu-item">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                </svg>
+                <span>Events</span>
+            </a>
+            <a href="#" class="menu-item" onclick="confirmExit(); return false;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                    <polyline points="16 17 21 12 16 7"></polyline>
+                    <line x1="21" y1="12" x2="9" y2="12"></line>
+                </svg>
+                <span>Exit</span>
+            </a>
+        </nav>
+        
+        <div class="sim-note">Simulation: Gaze = hover • Gesture = click</div>
+        
     </div>
-
-    <!-- Friend navigation modal -->
-    <div class="modal-overlay" id="friendModal">
-        <div class="modal-content glass-panel premium-modal">
-            <div class="modal-glow"></div>
-            <div class="gesture-icon">📍</div>
-            <h3 id="friendModalTitle">Navigate to friend?</h3>
-            <p id="friendModalDistance" class="modal-distance"></p>
-            <div class="modal-buttons">
-                <button class="btn-primary glow-button" id="confirmFriendNav">
-                    <span class="button-glow"></span>
-                    Confirm Gesture
-                </button>
-                <button class="btn-secondary glass-button" id="cancelFriendNav">Cancel</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Simulation hint -->
-    <div class="sim-hint">Simulation: Click friend → Gesture confirm to activate beacon</div>
-
+    
     <script src="script.js"></script>
 </body>
 </html>

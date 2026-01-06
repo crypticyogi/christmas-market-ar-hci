@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Christmas Market AR - Route Planning</title>
+    <title>Christmas Market AR - Events & Timing</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -32,56 +32,54 @@
         </div>
         
         <div class="view-title">
-            <h1>Your Route</h1>
+            <h1>Events & Schedule</h1>
         </div>
         
-        <!-- Next Stop Indicator -->
-        <div class="next-stop-card">
-            <div class="stop-icon">📍</div>
-            <div class="stop-info">
-                <div class="stop-label">Next Stop</div>
-                <div class="stop-name">Mulled Wine & Treats</div>
+        <!-- Event Cards -->
+        <div class="event-container">
+            <div class="event-card">
+                <div class="event-time">13:00</div>
+                <div class="event-details">
+                    <div class="event-name">🎵 Carol Singing</div>
+                    <div class="event-location">Main Stage</div>
+                </div>
+                <div class="event-status">In 26 min</div>
+            </div>
+            
+            <div class="event-card">
+                <div class="event-time">14:30</div>
+                <div class="event-details">
+                    <div class="event-name">🎅 Santa Arrival</div>
+                    <div class="event-location">North Entrance</div>
+                </div>
+                <div class="event-status">In 1h 56m</div>
+            </div>
+            
+            <div class="event-card">
+                <div class="event-time">16:00</div>
+                <div class="event-details">
+                    <div class="event-name">🎄 Tree Lighting</div>
+                    <div class="event-location">Central Square</div>
+                </div>
+                <div class="event-status">In 3h 26m</div>
+            </div>
+            
+            <div class="event-card">
+                <div class="event-time">18:00</div>
+                <div class="event-details">
+                    <div class="event-name">🎆 Fireworks Show</div>
+                    <div class="event-location">Market Plaza</div>
+                </div>
+                <div class="event-status">In 5h 26m</div>
             </div>
         </div>
         
-        <!-- Navigation Arrow -->
-        <div class="nav-arrow">
-            <svg width="100" height="100" viewBox="0 0 100 100">
-                <defs>
-                    <linearGradient id="arrowGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                        <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
-                        <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
-                    </linearGradient>
-                </defs>
-                <circle cx="50" cy="50" r="45" stroke="url(#arrowGrad)" stroke-width="2" fill="none" opacity="0.3"/>
-                <path d="M 50 20 L 50 70 M 50 70 L 35 55 M 50 70 L 65 55" 
-                      stroke="url(#arrowGrad)" stroke-width="5" fill="none" 
-                      stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            <div class="arrow-distance">50m</div>
-        </div>
-        
-        <!-- Route Steps -->
-        <div class="route-panel">
-            <h3>Upcoming Stops</h3>
-            <div class="route-step active">
-                <span class="step-number">1</span>
-                <span class="step-name">Mulled Wine & Treats</span>
-                <span class="step-dist">50m</span>
-            </div>
-            <div class="route-step">
-                <span class="step-number">2</span>
-                <span class="step-name">Handcraft Gifts</span>
-                <span class="step-dist">120m</span>
-            </div>
-            <div class="route-step">
-                <span class="step-number">3</span>
-                <span class="step-name">Main Stage</span>
-                <span class="step-dist">200m</span>
-            </div>
-            <div class="route-note">
-                <span class="note-icon">✓</span>
-                <span>Route optimized for crowd levels</span>
+        <!-- Market Hours -->
+        <div class="hours-panel">
+            <div class="hours-icon">🕐</div>
+            <div class="hours-info">
+                <div class="hours-label">Market Hours</div>
+                <div class="hours-time">Open until 22:00 tonight</div>
             </div>
         </div>
         
@@ -102,13 +100,13 @@
                 </svg>
                 <span>Friends</span>
             </a>
-            <a href="route.html" class="menu-item active">
+            <a href="route.html" class="menu-item">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <polyline points="9 18 15 12 9 6"></polyline>
                 </svg>
                 <span>Route</span>
             </a>
-            <a href="events.html" class="menu-item">
+            <a href="events.html" class="menu-item active">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
                     <line x1="16" y1="2" x2="16" y2="6"></line>
